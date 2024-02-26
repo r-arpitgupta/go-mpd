@@ -145,12 +145,64 @@ type EventStreamType struct {
 
 // EventType is Event.
 type EventType struct {
-	XMLName          xml.Name            `xml:"Event"`
-	PresentationTime uint64              `xml:"presentationTime,attr,omitempty"` // default is 0
-	Duration         uint64              `xml:"duration,attr,omitempty"`
-	Id               uint32              `xml:"id,attr"`
-	ContentEncoding  ContentEncodingType `xml:"contentEncoding,attr,omitempty"`
-	MessageData      string              `xml:"messageData,attr,omitempty"`
+	XMLName           xml.Name            `xml:"Event"`
+	PresentationTime  uint64              `xml:"presentationTime,attr,omitempty"` // default is 0
+	Duration          uint64              `xml:"duration,attr,omitempty"`
+	Id                uint32              `xml:"id,attr,omitempty"`
+	ContentEncoding   ContentEncodingType `xml:"contentEncoding,attr,omitempty"`
+	MessageData       string              `xml:"messageData,attr,omitempty"`
+	SpliceInfoSection *SpliceInfoSection  `xml:"urn:scte:scte35:2013:xml scte35:SpliceInfoSection,omitempty"`
+	// BinarySignal      *BinarySignal
+}
+
+type SpliceInfoSection struct {
+	// XMLName         xml.Name `xml:"SpliceInfoSection"`
+	ProtocolVersion        *uint8                  `xml:"protocolVersion,attr"`
+	PTSAdjustment          *uint64                 `xml:"ptsAdjustment,attr,omitempty"`
+	Tier                   *uint64                 `xml:"tier,attr"`
+	TimeSignal             *TimeSignal             `xml:"scte35:TimeSignal,omitempty"`
+	SegmentationDescriptor *SegmentationDescriptor `xml:"scte35:SegmentationDescriptor,omitempty"`
+}
+
+type TimeSignal struct {
+	// XMLName    xml.Name    `xml:"TimeSignal"`
+	// ABC        string      `xml:"abc,attr"`
+	SpliceTime *SpliceTime `xml:"scte35:SpliceTime,omitempty"`
+}
+
+type SpliceTime struct {
+	// XMLName xml.Name `xml:"SpliceTime"`
+	PtsTime *uint64 `xml:"ptsTime,attr"`
+}
+
+type SegmentationDescriptor struct {
+	// XMLName                          xml.Name              `xml:"SegmentationDescriptor"`
+	SegmentationEventId              *uint32               `xml:"segmentationEventId,attr,omitempty"`
+	SegmentationEventCancelIndicator *bool                 `xml:"segmentationEventCancelIndicator,attr,omitempty"`
+	SegmentationDuration             *uint64               `xml:"segmentationDuration,attr,omitempty"`
+	SegmentationTypeId               *uint8                `xml:"segmentationTypeId,attr,omitempty"`
+	SegmentNum                       *uint8                `xml:"segmentNum,attr,omitempty"`
+	SegmentsExpected                 *uint8                `xml:"segmentsExpected,attr,omitempty"`
+	DeliveryRestrictions             *DeliveryRestrictions `xml:"scte35:DeliveryRestrictions,omitempty"`
+	SegmentationUPID                 *SegmentationUPID     `xml:"scte35:SegmentationUpid,omitempty"`
+}
+
+type DeliveryRestrictions struct {
+	// XMLName                xml.Name `xml:"DeliveryRestrictions"`
+	WebDeliveryAllowedFlag *bool  `xml:"webDeliveryAllowedFlag,attr,omitempty"`
+	NoRegionalBlackoutFlag *bool  `xml:"noRegionalBlackoutFlag,attr,omitempty"`
+	ArchiveAllowedFlag     *bool  `xml:"archiveAllowedFlag,attr,omitempty"`
+	DeviceRestrictions     *uint8 `xml:"deviceRestrictions,attr,omitempty"`
+}
+
+type SegmentationUPID struct {
+	// XMLName                xml.Name `xml:"SegmentationUpid"`
+	SegmentationUPIDType   *uint8 `xml:"segmentationUpidType,attr,omitempty"`
+	SegmentationUPIDLength *uint8 `xml:"segmentationUpidLength,attr,omitempty"`
+	SegmentationTypeId     *uint8 `xml:"segmentationTypeId,attr,omitempty"`
+	SegmentNum             *uint8 `xml:"segmentNum,attr,omitempty"`
+	SegmentsExpected       *uint8 `xml:"segmentsExpected,attr,omitempty"`
+	Value                  string `xml:",cdata"`
 }
 
 // InitializationSetType is Initialization Set.
