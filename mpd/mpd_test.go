@@ -6,10 +6,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Eyevinn/dash-mpd/xml"
 	"github.com/google/go-cmp/cmp"
+	"github.com/r-arpitgupta/go-mpd/xml"
 
-	m "github.com/Eyevinn/dash-mpd/mpd"
+	m "github.com/r-arpitgupta/go-mpd/mpd"
 
 	"aqwari.net/xml/xmltree"
 	"github.com/stretchr/testify/require"

@@ -3,9 +3,9 @@ package mpd_test
 import (
 	"fmt"
 
-	"github.com/Eyevinn/dash-mpd/xml"
+	"github.com/r-arpitgupta/go-mpd/xml"
 
-	"github.com/Eyevinn/dash-mpd/mpd"
+	"github.com/r-arpitgupta/go-mpd/mpd"
 )
 
 func ExampleNewMPD() {

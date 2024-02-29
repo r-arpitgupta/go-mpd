@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Eyevinn/dash-mpd/xml"
+	"github.com/r-arpitgupta/go-mpd/xml"
 )
 
 // ReadFromFile reads and unmarshals an MPD from a file.
