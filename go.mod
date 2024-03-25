@@ -1,4 +1,4 @@
-module github.com/r-arpitgupta/go-mpd
+module github.com/Eyevinn/dash-mpd
 
 go 1.19
 

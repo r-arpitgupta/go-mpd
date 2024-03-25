@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/Eyevinn/dash-mpd/xml"
 	"github.com/barkimedes/go-deepcopy"
-	"github.com/r-arpitgupta/go-mpd/xml"
 )
 
 const (

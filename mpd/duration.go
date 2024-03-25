@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/r-arpitgupta/go-mpd/xml"
+	"github.com/Eyevinn/dash-mpd/xml"
 )
 
 // ParseDurationError for parsing xs:Duration string

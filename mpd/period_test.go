@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/r-arpitgupta/go-mpd/mpd"
+	"github.com/Eyevinn/dash-mpd/mpd"
 	"github.com/stretchr/testify/require"
 )
 
