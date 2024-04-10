@@ -146,7 +146,7 @@ type EventStreamType struct {
 // EventType is Event.
 type EventType struct {
 	XMLName           xml.Name            `xml:"Event"`
-	PresentationTime  uint64              `xml:"presentationTime,attr,omitempty"` // default is 0
+	PresentationTime  uint64              `xml:"presentationTime,attr"` // default is 0
 	Duration          uint64              `xml:"duration,attr,omitempty"`
 	Id                uint32              `xml:"id,attr,omitempty"`
 	ContentEncoding   ContentEncodingType `xml:"contentEncoding,attr,omitempty"`
